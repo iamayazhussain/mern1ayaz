@@ -58,6 +58,7 @@ const SyllabForm = () => {
             id="inputState"
             class="form-control"
             name="dept"
+            value={dept}
             onChange={onChange}
           >
             <option selected>Department...</option>
@@ -75,6 +76,7 @@ const SyllabForm = () => {
             id="inputState"
             class="form-control"
             name="sem"
+            value={sem}
             onChange={onChange}
           >
             <option selected>Choose...</option>
@@ -94,6 +96,7 @@ const SyllabForm = () => {
             id="inputState"
             class="form-control"
             name="type"
+            value={type}
             onChange={onChange}
           >
             <option selected>Choose...</option>

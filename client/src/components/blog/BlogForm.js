@@ -1,59 +1,59 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { Form, Col } from 'react-bootstrap'
-import BlogContext from '../../context/blog/blogContext'
+import React, { useState, useContext, useEffect } from "react";
+import { Form, Col } from "react-bootstrap";
+import BlogContext from "../../context/blog/blogContext";
 
 const BlogForm = () => {
-  const blogContext = useContext(BlogContext)
+  const blogContext = useContext(BlogContext);
 
-  const { addBlog, updateBlog, clearCurrent, current } = blogContext
+  const { addBlog, updateBlog, clearCurrent, current } = blogContext;
 
   useEffect(() => {
     if (current !== null) {
-      setBlog(current)
+      setBlog(current);
     } else {
       setBlog({
-        img: '',
-        title: '',
-        descp: '',
-        dept: '',
+        img: "",
+        title: "",
+        descp: "",
+        dept: "",
         tag: [],
-        link: '',
-        value: '',
-      })
+        link: "",
+        value: "",
+      });
     }
-  }, [blogContext, current])
+  }, [blogContext, current]);
 
   const [blog, setBlog] = useState({
-    img: '',
-    title: '',
-    descp: '',
-    dept: '',
+    img: "",
+    title: "",
+    descp: "",
+    dept: "",
     tag: [],
-    link: '',
-    value: '',
-  })
+    link: "",
+    value: "",
+  });
 
-  const { img, title, descp, dept, tag, link, value } = blog
+  const { img, title, descp, dept, tag, link, value } = blog;
 
-  const onChange = (e) => setBlog({ ...blog, [e.target.name]: e.target.value })
+  const onChange = (e) => setBlog({ ...blog, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (current === null) {
-      addBlog(blog)
+      addBlog(blog);
     } else {
-      updateBlog(blog)
+      updateBlog(blog);
     }
-    clearAll()
-  }
+    clearAll();
+  };
 
   const clearAll = () => {
-    clearCurrent()
-  }
+    clearCurrent();
+  };
 
   return (
     <Form onSubmit={onSubmit}>
-      <h2 className="text-primary">{current ? 'Edit Blog' : 'Add Blog'}</h2>
+      <h2 className="text-primary">{current ? "Edit Blog" : "Add Blog"}</h2>
 
       <Form.Row>
         <Form.Group as={Col} md={6} controlId="">
@@ -93,6 +93,7 @@ const BlogForm = () => {
             id="inputState"
             class="form-control"
             name="dept"
+            value={dept}
             onChange={onChange}
           >
             <option selected>Choose...</option>
@@ -111,8 +112,8 @@ const BlogForm = () => {
             className="form-check-input"
             type="checkbox"
             id="inlineCheckbox1"
-            value="inbound"
             name="tag"
+            value={tag}
             onChange={onChange}
           />
           <label className="form-check-label" for="inlineCheckbox1">
@@ -124,8 +125,8 @@ const BlogForm = () => {
             className="form-check-input"
             type="checkbox"
             id="inlineCheckbox2"
-            value="outbound"
             name="tag"
+            value={tag}
             onChange={onChange}
           />
           <label className="form-check-label" for="inlineCheckbox2">
@@ -137,7 +138,7 @@ const BlogForm = () => {
             className="form-check-input"
             type="checkbox"
             id="inlineCheckbox3"
-            value="sports"
+            value={tag}
             name="tag"
             onChange={onChange}
           />
@@ -183,7 +184,7 @@ const BlogForm = () => {
         <div>
           <input
             type="submit"
-            value={current ? 'Update Blog' : 'Add Blog'}
+            value={current ? "Update Blog" : "Add Blog"}
             className="btn btn-primary btn-block"
           />
         </div>
@@ -196,7 +197,7 @@ const BlogForm = () => {
         )}
       </Form.Row>
     </Form>
-  )
-}
+  );
+};
 
-export default BlogForm
+export default BlogForm;

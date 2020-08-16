@@ -1,23 +1,23 @@
-import React, { Fragment, useContext, useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import React, { Fragment, useContext, useEffect } from "react";
+import PropTypes from "prop-types";
+import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-import AuthContext from '../../context/auth/authContext'
+import AuthContext from "../../context/auth/authContext";
 
 const Navi = ({ title, icon }) => {
-  const authContext = useContext(AuthContext)
+  const authContext = useContext(AuthContext);
 
-  const { isAuthenticated, logout, user, loadUser } = authContext
+  const { isAuthenticated, logout, loadUser } = authContext;
 
   useEffect(() => {
-    loadUser()
+    loadUser();
     // eslint-disable-next-line
-  }, [])
+  }, []);
 
   const onLogout = () => {
-    logout()
-  }
+    logout();
+  };
 
   const authLinks = (
     <Fragment>
@@ -44,7 +44,7 @@ const Navi = ({ title, icon }) => {
         <Nav.Link href="#logout">Logout</Nav.Link>
       </Link>
     </Fragment>
-  )
+  );
 
   const guestLinks = (
     <Fragment>
@@ -55,7 +55,7 @@ const Navi = ({ title, icon }) => {
         <Nav.Link href="#contact">Login</Nav.Link>
       </Link>
     </Fragment>
-  )
+  );
 
   return (
     <Navbar collapseOnSelect expand="md" bg="light" variant="light">
@@ -70,17 +70,17 @@ const Navi = ({ title, icon }) => {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  )
-}
+  );
+};
 
 Navi.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string,
-}
+};
 
 Navi.defaultProps = {
-  title: 'Contact Keeper',
-  icon: 'fas fa-id-card-alt',
-}
+  title: "Contact Keeper",
+  icon: "fas fa-id-card-alt",
+};
 
-export default Navi
+export default Navi;

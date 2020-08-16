@@ -100,6 +100,7 @@ const CarouselForm = () => {
             id="inputState"
             class="form-control"
             name="tag"
+            value={tag}
             onChange={onChange}
           >
             <option selected>Choose...</option>

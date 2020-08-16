@@ -31,12 +31,16 @@ const SyllabItem = ({ syllab }) => {
           )}
         </td>
         <td>
-          <a className="btn btn-dark btn-sm" onClick={() => setCurrent(syllab)}>
+          <a
+            href="/#"
+            className="btn btn-dark btn-sm"
+            onClick={() => setCurrent(syllab)}
+          >
             Edit
           </a>
         </td>
         <td>
-          <a className="btn btn-danger btn-sm" onClick={onDelete}>
+          <a href="/#" className="btn btn-danger btn-sm" onClick={onDelete}>
             Delete
           </a>
         </td>

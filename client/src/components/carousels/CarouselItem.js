@@ -15,16 +15,16 @@ const CarouselItem = ({ carousel }) => {
 
   return (
     <div class="card mt-20">
-      <img class="card-img-top img-fluid" src={img} alt="Card image cap" />
+      <img class="card-img-top img-fluid" src={img} alt="Card cap" />
 
       <div className="card-body">
         <h5 className="card-title ">{title}</h5>
         <h6 className="card-subtitle mb-2 text-muted uppercase">{tag}</h6>
         <p className="card-text">{descp}</p>
-        <a href="#" className="card-link" onClick={() => setCurrent(carousel)}>
+        <a href="/#" className="card-link" onClick={() => setCurrent(carousel)}>
           Edit
         </a>
-        <a href="#" className="card-link" onClick={onDelete}>
+        <a href="/#" className="card-link" onClick={onDelete}>
           Delete
         </a>
       </div>
