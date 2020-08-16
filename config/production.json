@@ -1,0 +1,4 @@
+{
+  "mongoURI": "mongodb+srv://ayaz324244:ayazhussain324244@clusterisl.jkvnc.mongodb.net/isldb?retryWrites=true&w=majority",
+  "jwtSecret": "secret"
+}
