@@ -10,7 +10,9 @@ const Carousel = require('../models/Carousel')
 // @access    Private
 router.get('/', async (req, res) => {
   try {
-    const carousels = await Carousel.find().sort({ date: -1 })
+    const carousels = await Carousel.find({ tag: { $in: ['main'] } }).sort({
+      date: -1,
+    })
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
