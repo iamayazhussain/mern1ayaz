@@ -10,6 +10,17 @@ const Carousel = require('../models/Carousel')
 // @access    Private
 router.get('/', async (req, res) => {
   try {
+    const carousels = await Carousel.find().sort({
+      date: -1,
+    })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+router.get('/main', async (req, res) => {
+  try {
     const carousels = await Carousel.find({ tag: { $in: ['main'] } }).sort({
       date: -1,
     })
@@ -19,6 +30,7 @@ router.get('/', async (req, res) => {
     res.status(500).send('Server Error')
   }
 })
+
 router.get('/ce', async (req, res) => {
   try {
     const carousels = await Carousel.find({ tag: { $in: ['ce'] } }).sort({
