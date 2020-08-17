@@ -5,7 +5,6 @@ import Home from './components/pages/Home'
 import Info from './components/pages/Info'
 import Syllabus from './components/pages/Syllabus'
 import Blog from './components/pages/Blog'
-import Quick from './components/pages/Quick'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Alerts from './components/layout/Alerts'
@@ -26,35 +25,28 @@ const App = () => {
         <InfoState>
           <SyllabState>
             <BlogState>
-              <Quick>
-                <AlertState>
-                  <Router>
-                    <Fragment>
-                      <Navi />
-                      <div className="container mt-20">
-                        <Alerts />
-                        <Switch>
-                          <PrivateRoute exact path="/" component={Home} />
-                          <PrivateRoute exact path="/infos" component={Info} />
-                          <PrivateRoute
-                            exact
-                            path="/syllabus"
-                            component={Syllabus}
-                          />
-                          <PrivateRoute
-                            exact
-                            path="/quicklinks"
-                            component={Quick}
-                          />
-                          <PrivateRoute exact path="/blog" component={Blog} />
-                          <Route exact path="/register" component={Register} />
-                          <Route exact path="/login" component={Login} />
-                        </Switch>
-                      </div>
-                    </Fragment>
-                  </Router>
-                </AlertState>
-              </Quick>
+              <AlertState>
+                <Router>
+                  <Fragment>
+                    <Navi />
+                    <div className="container mt-20">
+                      <Alerts />
+                      <Switch>
+                        <PrivateRoute exact path="/" component={Home} />
+                        <PrivateRoute exact path="/infos" component={Info} />
+                        <PrivateRoute
+                          exact
+                          path="/syllabus"
+                          component={Syllabus}
+                        />
+                        <PrivateRoute exact path="/blog" component={Blog} />
+                        <Route exact path="/register" component={Register} />
+                        <Route exact path="/login" component={Login} />
+                      </Switch>
+                    </div>
+                  </Fragment>
+                </Router>
+              </AlertState>
             </BlogState>
           </SyllabState>
         </InfoState>

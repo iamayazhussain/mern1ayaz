@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Carousels from '../quicks/Quicks'
-import CarouselForm from '../quicks/QuickForm'
-import CarouselFilter from '../quicks/QuickFilter'
+import Carousels from '../quicks/quicks'
+import CarouselForm from '../quicks/quickForm'
+import CarouselFilter from '../quicks/quickFilter'
 
 const Info = () => {
   return (
