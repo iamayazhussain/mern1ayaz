@@ -1,55 +1,55 @@
-import React, { useState, useContext, useEffect } from "react";
-import SyllabContext from "../../context/syllab/syllabContext";
-import { Col, Form } from "react-bootstrap";
+import React, { useState, useContext, useEffect } from 'react'
+import SyllabContext from '../../context/syllab/syllabContext'
+import { Col, Form } from 'react-bootstrap'
 
 const SyllabForm = () => {
-  const syllabContext = useContext(SyllabContext);
+  const syllabContext = useContext(SyllabContext)
 
-  const { addSyllab, updateSyllab, clearCurrent, current } = syllabContext;
+  const { addSyllab, updateSyllab, clearCurrent, current } = syllabContext
 
   useEffect(() => {
     if (current !== null) {
-      setSyllab(current);
+      setSyllab(current)
     } else {
       setSyllab({
-        dept: "",
-        sem: "",
-        type: "",
-        syllabus: "",
-      });
+        dept: '',
+        sem: '',
+        type: '',
+        syllabus: '',
+      })
     }
-  }, [syllabContext, current]);
+  }, [syllabContext, current])
 
   const [syllab, setSyllab] = useState({
-    dept: "",
-    sem: "",
-    type: "",
-    syllabus: "",
-  });
+    dept: '',
+    sem: '',
+    type: '',
+    syllabus: '',
+  })
 
-  const { dept, sem, type, syllabus } = syllab;
+  const { dept, sem, type, syllabus } = syllab
 
   const onChange = (e) =>
-    setSyllab({ ...syllab, [e.target.name]: e.target.value });
+    setSyllab({ ...syllab, [e.target.name]: e.target.value })
 
   const onSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (current === null) {
-      addSyllab(syllab);
+      addSyllab(syllab)
     } else {
-      updateSyllab(syllab);
+      updateSyllab(syllab)
     }
-    clearAll();
-  };
+    clearAll()
+  }
 
   const clearAll = () => {
-    clearCurrent();
-  };
+    clearCurrent()
+  }
 
   return (
     <Form onSubmit={onSubmit}>
       <h2 className="text-primary">
-        {current ? "Edit Syllabus" : "Add Syllabus"}
+        {current ? 'Edit Syllabus' : 'Add Syllabus'}
       </h2>
 
       <Form.Row>
@@ -82,7 +82,7 @@ const SyllabForm = () => {
             <option selected>Choose...</option>
             <option value="I">I</option>
             <option value="II">II</option>
-            <option value="mIII">IIII</option>
+            <option value="III">IIII</option>
             <option value="IV">IV</option>
             <option value="V">V</option>
             <option value="VI">VI</option>
@@ -118,7 +118,7 @@ const SyllabForm = () => {
         <div>
           <input
             type="submit"
-            value={current ? "Update Carousel" : "Add Carousel"}
+            value={current ? 'Update Carousel' : 'Add Carousel'}
             className="btn btn-primary btn-block"
           />
         </div>
@@ -131,7 +131,7 @@ const SyllabForm = () => {
         )}
       </Form.Row>
     </Form>
-  );
-};
+  )
+}
 
-export default SyllabForm;
+export default SyllabForm

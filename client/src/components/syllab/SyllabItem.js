@@ -17,14 +17,13 @@ const SyllabItem = ({ syllab }) => {
   return (
     <Table striped bordered hover>
       <tr>
-        <td>{dept.toUpperCase()}</td>
+        <td>{dept.toUpperCase()} </td>
         <td>{sem}</td>
         <td>{type.toUpperCase()}</td>
         <td>
           {syllabus ? (
-            <a href={syllabus}>
-              {' '}
-              <i className="fa fa-external-link" aria-hidden="true"></i>
+            <a href={syllabus} target="_blank" rel="noopener noreferrer">
+              View <i className="fa fa-eye" aria-hidden="true"></i>
             </a>
           ) : (
             'No Link'

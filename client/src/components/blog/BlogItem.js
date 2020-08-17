@@ -21,10 +21,13 @@ const BlogItem = ({ blog }) => {
         <h5 className="card-title ">{title}</h5>
         <h6 className="card-subtitle mb-2 text-muted uppercase">{tag}</h6>
         <p className="card-text">{descp}</p>
-        <button className="card-link" onClick={() => setCurrent(blog)}>
+        <button
+          className="card-link btn btn-dark"
+          onClick={() => setCurrent(blog)}
+        >
           Edit
         </button>
-        <button className="card-link" onClick={onDelete}>
+        <button className="card-link btn btn-danger" onClick={onDelete}>
           Delete
         </button>
       </div>

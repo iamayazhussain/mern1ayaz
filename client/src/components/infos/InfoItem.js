@@ -31,10 +31,13 @@ const InfoItem = ({ info }) => {
         )}
       </div>
       <div class="card-body">
-        <button className="card-link" onClick={() => setCurrent(info)}>
+        <button
+          className="card-link btn btn-dark"
+          onClick={() => setCurrent(info)}
+        >
           Edit
         </button>
-        <button className="card-link" onClick={onDelete}>
+        <button className="card-link btn btn-danger" onClick={onDelete}>
           Delete
         </button>
       </div>
