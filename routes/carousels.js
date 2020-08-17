@@ -17,6 +17,70 @@ router.get('/', async (req, res) => {
     res.status(500).send('Server Error')
   }
 })
+router.get('/ce', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ tag: { $in: ['ce'] } })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/cse', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ tag: { $in: ['cse'] } })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+router.get('/ece', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ tag: { $in: ['ece'] } })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+router.get('/eee', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ tag: { $in: ['eee'] } })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+router.get('/it', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ tag: { $in: ['it'] } })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+router.get('/me', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ tag: { $in: ['me'] } })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+router.get('/mba', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ tag: { $in: ['mba'] } })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
 
 // @route     POST api/carousel
 // @desc      Add new carousel

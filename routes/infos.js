@@ -7,10 +7,21 @@ const Info = require('../models/Info')
 
 // @route     GET api/contacts
 // @desc      Get all users contacts
-// @access    Private
+// @access
 router.get('/', async (req, res) => {
   try {
-    const infos = await Info.find()
+    const infos = await Info.find().sort('date', -1).limit(5)
+
+    res.json(infos)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/allNews', async (req, res) => {
+  try {
+    const infos = await Info.find().sort('date', -1)
     res.json(infos)
   } catch (err) {
     console.error(err.message)

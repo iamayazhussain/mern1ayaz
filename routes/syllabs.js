@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 
 router.get('/ce', async (req, res) => {
   try {
-    const syllabs = await Syllab.find({ tag: { $in: ['ce'] } })
+    const syllabs = await Syllab.find({ dept: { $in: ['ce'] } })
     res.json(syllabs)
   } catch (err) {
     console.error(err.message)
@@ -30,7 +30,7 @@ router.get('/ce', async (req, res) => {
 
 router.get('/cse', async (req, res) => {
   try {
-    const syllabs = await Syllab.find({ tag: { $in: ['cse'] } })
+    const syllabs = await Syllab.find({ dept: { $in: ['cse'] } })
     res.json(syllabs)
   } catch (err) {
     console.error(err.message)
@@ -39,7 +39,7 @@ router.get('/cse', async (req, res) => {
 })
 router.get('/ece', async (req, res) => {
   try {
-    const syllabs = await Syllab.find({ tag: { $in: ['ece'] } })
+    const syllabs = await Syllab.find({ dept: { $in: ['ece'] } })
     res.json(syllabs)
   } catch (err) {
     console.error(err.message)
@@ -48,7 +48,7 @@ router.get('/ece', async (req, res) => {
 })
 router.get('/eee', async (req, res) => {
   try {
-    const syllabs = await Syllab.find({ tag: { $in: ['eee'] } })
+    const syllabs = await Syllab.find({ dept: { $in: ['eee'] } })
     res.json(syllabs)
   } catch (err) {
     console.error(err.message)
@@ -57,7 +57,7 @@ router.get('/eee', async (req, res) => {
 })
 router.get('/it', async (req, res) => {
   try {
-    const syllabs = await Syllab.find({ tag: { $in: ['it'] } })
+    const syllabs = await Syllab.find({ dept: { $in: ['it'] } })
     res.json(syllabs)
   } catch (err) {
     console.error(err.message)
@@ -66,7 +66,7 @@ router.get('/it', async (req, res) => {
 })
 router.get('/me', async (req, res) => {
   try {
-    const syllabs = await Syllab.find({ tag: { $in: ['me'] } })
+    const syllabs = await Syllab.find({ dept: { $in: ['me'] } })
     res.json(syllabs)
   } catch (err) {
     console.error(err.message)
@@ -75,7 +75,7 @@ router.get('/me', async (req, res) => {
 })
 router.get('/mba', async (req, res) => {
   try {
-    const syllabs = await Syllab.find({ tag: { $in: ['mba'] } })
+    const syllabs = await Syllab.find({ dept: { $in: ['mba'] } })
     res.json(syllabs)
   } catch (err) {
     console.error(err.message)
