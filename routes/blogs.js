@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 
 router.get('/main', async (req, res) => {
   try {
-    const blog = await Blog.find().sort('date', -1).limit(4)
+    const blog = await Blog.find().sort({ date: -1 }).limit(4)
     res.json(blog)
   } catch (err) {
     console.error(err.message)
@@ -31,7 +31,7 @@ router.get('/main', async (req, res) => {
 router.get('/ce', async (req, res) => {
   try {
     const blog = await Blog.find({ dept: { $in: ['ce'] } })
-      .sort('date', -1)
+      .sort({ date: -1 })
       .limit(4)
     res.json(blog)
   } catch (err) {
@@ -43,7 +43,7 @@ router.get('/ce', async (req, res) => {
 router.get('/cse', async (req, res) => {
   try {
     const blog = await Blog.find({ dept: { $in: ['cse'] } })
-      .sort('date', -1)
+      .sort({ date: -1 })
       .limit(4)
     res.json(blog)
   } catch (err) {
@@ -54,7 +54,7 @@ router.get('/cse', async (req, res) => {
 router.get('/ece', async (req, res) => {
   try {
     const blog = await Blog.find({ dept: { $in: ['ece'] } })
-      .sort('date', -1)
+      .sort({ date: -1 })
       .limit(4)
     res.json(blog)
   } catch (err) {
@@ -65,7 +65,7 @@ router.get('/ece', async (req, res) => {
 router.get('/eee', async (req, res) => {
   try {
     const blog = await Blog.find({ dept: { $in: ['eee'] } })
-      .sort('date', -1)
+      .sort({ date: -1 })
       .limit(4)
     res.json(blog)
   } catch (err) {
@@ -76,7 +76,7 @@ router.get('/eee', async (req, res) => {
 router.get('/it', async (req, res) => {
   try {
     const blog = await Blog.find({ dept: { $in: ['it'] } })
-      .sort('date', -1)
+      .sort({ date: -1 })
       .limit(4)
     res.json(blog)
   } catch (err) {
@@ -87,7 +87,7 @@ router.get('/it', async (req, res) => {
 router.get('/me', async (req, res) => {
   try {
     const blog = await Blog.find({ dept: { $in: ['me'] } })
-      .sort('date', -1)
+      .sort({ date: -1 })
       .limit(4)
     res.json(blog)
   } catch (err) {
@@ -98,7 +98,7 @@ router.get('/me', async (req, res) => {
 router.get('/mba', async (req, res) => {
   try {
     const blog = await Blog.find({ dept: { $in: ['mba'] } })
-      .sort('date', -1)
+      .sort({ date: -1 })
       .limit(4)
     res.json(blog)
   } catch (err) {
@@ -122,7 +122,9 @@ router.get('/workshop', async (req, res) => {
 
 router.get('/inbound', async (req, res) => {
   try {
-    const blog = await Blog.find({ tag: { $in: ['inbound'] } }).sort('date', -1)
+    const blog = await Blog.find({ tag: { $in: ['inbound'] } }).sort({
+      date: -1,
+    })
     res.json(blog)
   } catch (err) {
     console.error(err.message)
@@ -158,7 +160,9 @@ router.get('/industrial', async (req, res) => {
 
 router.get('/sports', async (req, res) => {
   try {
-    const blog = await Blog.find({ tag: { $in: ['sports'] } }).sort('date', -1)
+    const blog = await Blog.find({ tag: { $in: ['sports'] } }).sort({
+      date: -1,
+    })
     res.json(blog)
   } catch (err) {
     console.error(err.message)

@@ -10,7 +10,7 @@ const Carousel = require('../models/Carousel')
 // @access    Private
 router.get('/', async (req, res) => {
   try {
-    const carousels = await Carousel.find()
+    const carousels = await Carousel.find().sort({ date: -1 })
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
@@ -19,7 +19,9 @@ router.get('/', async (req, res) => {
 })
 router.get('/ce', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ tag: { $in: ['ce'] } })
+    const carousels = await Carousel.find({ tag: { $in: ['ce'] } }).sort({
+      date: -1,
+    })
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
@@ -29,7 +31,9 @@ router.get('/ce', async (req, res) => {
 
 router.get('/cse', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ tag: { $in: ['cse'] } })
+    const carousels = await Carousel.find({ tag: { $in: ['cse'] } }).sort({
+      date: -1,
+    })
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
@@ -38,7 +42,9 @@ router.get('/cse', async (req, res) => {
 })
 router.get('/ece', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ tag: { $in: ['ece'] } })
+    const carousels = await Carousel.find({ tag: { $in: ['ece'] } }).sort({
+      date: -1,
+    })
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
@@ -47,7 +53,9 @@ router.get('/ece', async (req, res) => {
 })
 router.get('/eee', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ tag: { $in: ['eee'] } })
+    const carousels = await Carousel.find({ tag: { $in: ['eee'] } }).sort({
+      date: -1,
+    })
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
@@ -56,7 +64,9 @@ router.get('/eee', async (req, res) => {
 })
 router.get('/it', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ tag: { $in: ['it'] } })
+    const carousels = await Carousel.find({ tag: { $in: ['it'] } }).sort({
+      date: -1,
+    })
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
@@ -65,7 +75,9 @@ router.get('/it', async (req, res) => {
 })
 router.get('/me', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ tag: { $in: ['me'] } })
+    const carousels = await Carousel.find({ tag: { $in: ['me'] } }).sort({
+      date: -1,
+    })
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
@@ -74,7 +86,9 @@ router.get('/me', async (req, res) => {
 })
 router.get('/mba', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ tag: { $in: ['mba'] } })
+    const carousels = await Carousel.find({ tag: { $in: ['mba'] } }).sort({
+      date: -1,
+    })
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
