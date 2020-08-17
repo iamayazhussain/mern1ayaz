@@ -10,7 +10,7 @@ const Blog = require('../models/Blog')
 // @access    Private
 router.get('/', async (req, res) => {
   try {
-    const blog = await Blog.find()
+    const blog = await Blog.find().sort({ date: -1 })
     res.json(blog)
   } catch (err) {
     console.error(err.message)
@@ -109,10 +109,9 @@ router.get('/mba', async (req, res) => {
 
 router.get('/workshop', async (req, res) => {
   try {
-    const blog = await Blog.find({ tag: { $in: ['workshop'] } }).sort(
-      'date',
-      -1,
-    )
+    const blog = await Blog.find({ tag: { $in: ['workshop'] } }).sort({
+      date: -1,
+    })
     res.json(blog)
   } catch (err) {
     console.error(err.message)
@@ -134,10 +133,9 @@ router.get('/inbound', async (req, res) => {
 
 router.get('/outbound', async (req, res) => {
   try {
-    const blog = await Blog.find({ tag: { $in: ['outbound'] } }).sort(
-      'date',
-      -1,
-    )
+    const blog = await Blog.find({ tag: { $in: ['outbound'] } }).sort({
+      date: -1,
+    })
     res.json(blog)
   } catch (err) {
     console.error(err.message)
@@ -147,10 +145,9 @@ router.get('/outbound', async (req, res) => {
 
 router.get('/industrial', async (req, res) => {
   try {
-    const blog = await Blog.find({ tag: { $in: ['industrial'] } }).sort(
-      'date',
-      -1,
-    )
+    const blog = await Blog.find({ tag: { $in: ['industrial'] } }).sort({
+      date: -1,
+    })
     res.json(blog)
   } catch (err) {
     console.error(err.message)
