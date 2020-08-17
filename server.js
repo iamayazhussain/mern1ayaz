@@ -31,6 +31,7 @@ app.use('/api/carousels', require('./routes/carousels'))
 app.use('/api/infos', require('./routes/infos'))
 app.use('/api/syllabs', require('./routes/syllabs'))
 app.use('/api/blogs', require('./routes/blogs'))
+app.use('/api/quick', require('./routes/quicks'))
 
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {

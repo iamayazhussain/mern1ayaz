@@ -1,42 +1,41 @@
 import React, { useState, useContext, useEffect } from 'react'
-import InfoContext from '../../context/info/infoContext'
+import QuickContext from '../../context/quick/quickContext'
 import { Form, Col } from 'react-bootstrap'
 
-const InfoForm = () => {
-  const infoContext = useContext(InfoContext)
+const QuickForm = () => {
+  const quickContext = useContext(QuickContext)
 
-  const { addInfo, updateInfo, clearCurrent, current } = infoContext
+  const { addQuick, updateQuick, clearCurrent, current } = quickContext
 
   useEffect(() => {
     if (current !== null) {
-      setInfo(current)
+      setQuick(current)
     } else {
-      setInfo({
+      setQuick({
         tag: '',
         title: '',
         link: '',
-        value: '',
       })
     }
-  }, [infoContext, current])
+  }, [quickContext, current])
 
-  const [info, setInfo] = useState({
+  const [quick, setQuick] = useState({
     tag: '',
     title: '',
     link: '',
-    value: '',
   })
 
-  const { tag, title, link, value } = info
+  const { tag, title, link } = quick
 
-  const onChange = (e) => setInfo({ ...info, [e.target.name]: e.target.value })
+  const onChange = (e) =>
+    setQuick({ ...quick, [e.target.name]: e.target.value })
 
   const onSubmit = (e) => {
     e.preventDefault()
     if (current === null) {
-      addInfo(info)
+      addQuick(quick)
     } else {
-      updateInfo(info)
+      updateQuick(quick)
     }
     clearAll()
   }
@@ -47,7 +46,9 @@ const InfoForm = () => {
 
   return (
     <Form onSubmit={onSubmit}>
-      <h2 className="text-primary">{current ? 'Edit Info' : 'Add Info'}</h2>
+      <h2 className="text-primary">
+        {current ? 'Edit Quick Link' : 'Add Quick Link'}
+      </h2>
 
       <Form.Row>
         <Form.Group as={Col} md={6} controlId="">
@@ -72,16 +73,6 @@ const InfoForm = () => {
           />
         </Form.Group>
 
-        <Form.Group as={Col} md={6} controlId="">
-          <Form.Control
-            type="text"
-            placeholder="Value ??"
-            name="value"
-            value={value}
-            onChange={onChange}
-            autocomplete="off"
-          />
-        </Form.Group>
         <div className="form-group col-md-6">
           <select
             id="inputState"
@@ -98,7 +89,7 @@ const InfoForm = () => {
         <div>
           <input
             type="submit"
-            value={current ? 'Update Info' : 'Add Info'}
+            value={current ? 'Update Quick Link' : 'Quick Link'}
             className="btn btn-primary btn-block"
           />
         </div>
@@ -114,4 +105,4 @@ const InfoForm = () => {
   )
 }
 
-export default InfoForm
+export default QuickForm
