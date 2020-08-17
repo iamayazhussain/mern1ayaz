@@ -21,7 +21,9 @@ router.get('/', async (req, res) => {
 
 router.get('/news', async (req, res) => {
   try {
-    const infos = await Info.find().sort({ date: -1 }).limit(5)
+    const infos = await Info.find({ type: { $in: ['news'] } })
+      .sort({ date: -1 })
+      .limit(5)
 
     res.json(infos)
   } catch (err) {
@@ -33,6 +35,16 @@ router.get('/news', async (req, res) => {
 router.get('/allNews', async (req, res) => {
   try {
     const infos = await Info.find().sort({ date: -1 })
+    res.json(infos)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/topalert', async (req, res) => {
+  try {
+    const infos = await Info.find({ type: { $in: ['topalert'] } })
     res.json(infos)
   } catch (err) {
     console.error(err.message)
