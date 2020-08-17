@@ -1,23 +1,23 @@
-import React, { useContext } from "react";
-import PropTypes from "prop-types";
-import InfoContext from "../../context/info/infoContext";
+import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
+import InfoContext from '../../context/info/infoContext'
 
 const InfoItem = ({ info }) => {
-  const infoContext = useContext(InfoContext);
-  const { deleteInfo, setCurrent, clearCurrent } = infoContext;
+  const infoContext = useContext(InfoContext)
+  const { deleteInfo, setCurrent, clearCurrent } = infoContext
 
-  const { _id, tag, title, link, value } = info;
+  const { _id, tag, title, link, value } = info
 
   const onDelete = () => {
-    deleteInfo(_id);
-    clearCurrent();
-  };
+    deleteInfo(_id)
+    clearCurrent()
+  }
 
   return (
     <div className="card mt-15">
       <div className="card-header">
         <span className="badge badge-primary">
-          {tag === "news" ? "News" : "Top Alert"}
+          {tag === 'news' ? 'News' : 'Top Alert'}
         </span>
       </div>
       <div className="card-body">
@@ -27,23 +27,23 @@ const InfoItem = ({ info }) => {
             {value}
           </a>
         ) : (
-          ""
+          ''
         )}
       </div>
       <div class="card-body">
-        <a href="/#edit" className="card-link" onClick={() => setCurrent(info)}>
+        <button className="card-link" onClick={() => setCurrent(info)}>
           Edit
-        </a>
-        <a href="/#delete" className="card-link" onClick={onDelete}>
+        </button>
+        <button className="card-link" onClick={onDelete}>
           Delete
-        </a>
+        </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
 InfoItem.propTypes = {
   info: PropTypes.object.isRequired,
-};
+}
 
-export default InfoItem;
+export default InfoItem
