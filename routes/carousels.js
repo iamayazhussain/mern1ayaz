@@ -8,7 +8,7 @@ const Carousel = require('../models/Carousel')
 // @route     GET api/contacts
 // @desc      Get all users contacts
 // @access    Private
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const carousels = await Carousel.find()
     res.json(carousels)

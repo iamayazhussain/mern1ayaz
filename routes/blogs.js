@@ -8,7 +8,7 @@ const Blog = require('../models/Blog')
 // @route     GET api/contacts
 // @desc      Get all users contacts
 // @access    Private
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const blog = await Blog.find()
     res.json(blog)
