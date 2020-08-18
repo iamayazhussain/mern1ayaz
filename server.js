@@ -33,6 +33,8 @@ app.use('/api/sideinfos', require('./routes/sideinfos'))
 app.use('/api/syllabs', require('./routes/syllabs'))
 app.use('/api/blogs', require('./routes/blogs'))
 
+app.use('/api/admissions', require('./routes/admissions'))
+
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
   // Set static folder
