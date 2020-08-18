@@ -62,11 +62,7 @@ export default (state, action) => {
         ...state,
         filtered: state.blogs.filter((blog) => {
           const regex = new RegExp(`${action.payload}`, 'gi')
-          return (
-            blog.tag.match(regex) ||
-            blog.dept.match(regex) ||
-            blog.title.match(regex)
-          )
+          return blog.title.match(regex)
         }),
       }
     case CLEAR_FILTER:

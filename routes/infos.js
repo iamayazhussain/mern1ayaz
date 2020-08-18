@@ -55,34 +55,30 @@ router.get('/topalert', async (req, res) => {
 // @route     POST api/carousel
 // @desc      Add new carousel
 // @access    Private
-router.post(
-  '/',
-  [auth, [check('title', 'Title is required').not().isEmpty()]],
-  async (req, res) => {
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() })
-    }
+router.post('/', async (req, res) => {
+  const errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() })
+  }
 
-    const { tag, title, link, value } = req.body
+  const { tag, title, link, value } = req.body
 
-    try {
-      const newInfo = new Info({
-        tag,
-        title,
-        link,
-        value,
-      })
+  try {
+    const newInfo = new Info({
+      tag,
+      title,
+      link,
+      value,
+    })
 
-      const info = await newInfo.save()
+    const info = await newInfo.save()
 
-      res.json(info)
-    } catch (err) {
-      console.error(err.message)
-      res.status(500).send('Server Error')
-    }
-  },
-)
+    res.json(info)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
 
 // @route     PUT api/carousel/:id
 // @desc      Update carousel
