@@ -32,12 +32,12 @@ const Navi = ({ title, icon }) => {
         <Nav.Link href="#blog">Blog</Nav.Link>
       </Link>
 
-      <Link to="/infos">
-        <Nav.Link href="#about">Infos</Nav.Link>
+      <Link to="/sideinfo">
+        <Nav.Link href="#sideinfo">SideInfo</Nav.Link>
       </Link>
 
-      <Link to="/quicklinks">
-        <Nav.Link href="#publication">QuickLink</Nav.Link>
+      <Link to="/infos">
+        <Nav.Link href="#about">Infos</Nav.Link>
       </Link>
 
       <Link onClick={onLogout}>
