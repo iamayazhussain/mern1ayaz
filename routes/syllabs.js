@@ -10,7 +10,7 @@ const Syllab = require('../models/Syllab')
 // @access    Private
 router.get('/', async (req, res) => {
   try {
-    const syllabs = await Syllab.find()
+    const syllabs = await Syllab.find().sort({ date: -1 })
     res.json(syllabs)
   } catch (err) {
     console.error(err.message)
