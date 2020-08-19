@@ -126,7 +126,7 @@ router.get('/me', async (req, res) => {
 // @access    Private
 router.post(
   '/',
-  [auth, [check('img', 'Image is required').not().isEmpty()]],
+  [auth, [check('title', 'Image is required').not().isEmpty()]],
   async (req, res) => {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {
@@ -156,7 +156,7 @@ router.post(
 // @desc      Update carousel
 // @access    Private
 router.put('/:id', auth, async (req, res) => {
-  const { img, title, descp, tag, link, value } = req.body
+  const { title, link, tag } = req.body
 
   // Build contact object
   const sidebarFields = {}
