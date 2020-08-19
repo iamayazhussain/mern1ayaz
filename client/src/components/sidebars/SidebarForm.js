@@ -82,7 +82,7 @@ const SidebarForm = () => {
             onChange={onChange}
           >
             <option selected>Choose...</option>
-            <option value="main">Main</option>
+            <option value="academics">Academics</option>
             <option value="cse">CSE</option>
             <option value="ce">CE</option>
             <option value="ece">ECE</option>
@@ -90,6 +90,8 @@ const SidebarForm = () => {
             <option value="me">ME</option>
             <option value="it">IT</option>
             <option value="mba">MBA</option>
+            <option value="events">Events</option>
+            <option value="research">Research</option>
           </select>
         </div>
         <div>

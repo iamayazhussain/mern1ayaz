@@ -43,6 +43,18 @@ router.get('/events', async (req, res) => {
   }
 })
 
+router.get('/research', async (req, res) => {
+  try {
+    const sidebars = await Sidebar.find({ tag: { $in: ['research'] } }).sort({
+      date: -1,
+    })
+    res.json(sidebars)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
 router.get('/ce', async (req, res) => {
   try {
     const sidebars = await Sidebar.find({ tag: { $in: ['ce'] } }).sort({
