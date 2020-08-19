@@ -29,9 +29,9 @@ app.use('/api/auth', require('./routes/auth'))
 app.use('/api/contacts', require('./routes/contacts'))
 app.use('/api/carousels', require('./routes/carousels'))
 app.use('/api/infos', require('./routes/infos'))
-app.use('/api/sideinfos', require('./routes/sideinfos'))
 app.use('/api/syllabs', require('./routes/syllabs'))
 app.use('/api/blogs', require('./routes/blogs'))
+app.use('/api/sidebars', require('./routes/sidebars'))
 
 app.use('/api/admissions', require('./routes/admissions'))
 

@@ -32,8 +32,8 @@ const Navi = ({ title, icon }) => {
         <Nav.Link href="#blog">Blog</Nav.Link>
       </Link>
 
-      <Link to="/sideinfo">
-        <Nav.Link href="#sideinfo">SideInfo</Nav.Link>
+      <Link to="/sidebar">
+        <Nav.Link href="#sidebar">SideInfo</Nav.Link>
       </Link>
 
       <Link to="/infos">

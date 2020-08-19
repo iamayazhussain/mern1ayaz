@@ -1,23 +1,20 @@
 const mongoose = require('mongoose')
 
-const SideinfoSchema = mongoose.Schema({
-  tag: {
-    type: String,
-  },
+const SidebarSchema = mongoose.Schema({
   title: {
     type: String,
   },
   link: {
     type: String,
   },
-
-  value: {
+  tag: {
     type: String,
   },
+
   date: {
     type: Date,
     default: Date.now,
   },
 })
 
-module.exports = mongoose.model('sideinfos', SideinfoSchema)
+module.exports = mongoose.model('sidebars', SidebarSchema)
