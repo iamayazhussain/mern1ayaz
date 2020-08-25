@@ -48,9 +48,6 @@ const Navi = ({ title, icon }) => {
 
   const guestLinks = (
     <Fragment>
-      <Link to="/register">
-        <Nav.Link href="#contact">Register</Nav.Link>
-      </Link>
       <Link to="/login">
         <Nav.Link href="#contact">Login</Nav.Link>
       </Link>
@@ -59,7 +56,7 @@ const Navi = ({ title, icon }) => {
 
   return (
     <Navbar collapseOnSelect expand="md" bg="light" variant="light">
-      <Navbar.Brand href="#home">Brand link</Navbar.Brand>
+      <Navbar.Brand href="#home">{title}</Navbar.Brand>
       <Navbar.Toggle
         aria-controls="responsive-navbar-nav"
         className="order-first"
@@ -79,7 +76,7 @@ Navi.propTypes = {
 }
 
 Navi.defaultProps = {
-  title: 'Contact Keeper',
+  title: 'ISLEC',
   icon: 'fas fa-id-card-alt',
 }
 

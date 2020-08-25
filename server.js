@@ -32,6 +32,7 @@ app.use('/api/infos', require('./routes/infos'))
 app.use('/api/syllabs', require('./routes/syllabs'))
 app.use('/api/blogs', require('./routes/blogs'))
 app.use('/api/sidebars', require('./routes/sidebars'))
+app.use('/api/exams', require('./routes/exams'))
 
 app.use('/api/admissions', require('./routes/admissions'))
 
