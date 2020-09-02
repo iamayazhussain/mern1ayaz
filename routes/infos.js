@@ -21,9 +21,7 @@ router.get('/', async (req, res) => {
 
 router.get('/useful', async (req, res) => {
   try {
-    const infos = await Info.find({ tag: { $in: ['useful'] } })
-      .sort({ date: -1 })
-      .limit(5)
+    const infos = await Info.find({ tag: { $in: ['useful'] } }).limit(5)
 
     res.json(infos)
   } catch (err) {
@@ -34,10 +32,7 @@ router.get('/useful', async (req, res) => {
 
 router.get('/alluseful', async (req, res) => {
   try {
-    const infos = await Info.find({ tag: { $in: ['useful'] } }).sort({
-      date: -1,
-    })
-
+    const infos = await Info.find({ tag: { $in: ['useful'] } })
     res.json(infos)
   } catch (err) {
     console.error(err.message)
