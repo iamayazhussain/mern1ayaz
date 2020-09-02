@@ -16,9 +16,7 @@ const InfoItem = ({ info }) => {
   return (
     <div className="card mt-15">
       <div className="card-header">
-        <span className="badge badge-primary">
-          {tag === 'news' ? 'News' : 'Top Alert'}
-        </span>
+        <span className="badge badge-primary">{tag.toUpperCase()}</span>
       </div>
       <div className="card-body">
         <p className="card-text">{title}</p>
