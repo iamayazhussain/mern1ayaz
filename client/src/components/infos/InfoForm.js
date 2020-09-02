@@ -91,8 +91,9 @@ const InfoForm = () => {
             onChange={onChange}
           >
             <option selected>Choose...</option>
-            <option value="topalert">Top Alert</option>
             <option value="news">News</option>
+            <option value="useful">Useful Link</option>
+            <option value="topalert">Top Alert</option>
           </select>
         </div>
         <div>

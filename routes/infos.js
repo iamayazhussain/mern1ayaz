@@ -19,11 +19,37 @@ router.get('/', async (req, res) => {
   }
 })
 
+router.get('/useful', async (req, res) => {
+  try {
+    const infos = await Info.find({ tag: { $in: ['useful'] } })
+      .sort({ date: -1 })
+      .limit(5)
+
+    res.json(infos)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/alluseful', async (req, res) => {
+  try {
+    const infos = await Info.find({ tag: { $in: ['useful'] } }).sort({
+      date: -1,
+    })
+
+    res.json(infos)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
 router.get('/news', async (req, res) => {
   try {
     const infos = await Info.find({ tag: { $in: ['news'] } })
       .sort({ date: -1 })
-      .limit(5)
+      .limit(4)
 
     res.json(infos)
   } catch (err) {
