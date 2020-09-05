@@ -14,7 +14,7 @@ router.get('/', auth, async (req, res) => {
       date: -1,
     })
 
-    res.json(infos)
+    res.json(Publications)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')

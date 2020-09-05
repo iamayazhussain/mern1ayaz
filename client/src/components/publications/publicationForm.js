@@ -73,6 +73,7 @@ const PublicationForm = () => {
             <option value="eee">EEE</option>
             <option value="me">ME</option>
             <option value="it">IT</option>
+            <option value="me">ME</option>
           </select>
         </div>
         <Form.Group as={Col} md={6} controlId="">
