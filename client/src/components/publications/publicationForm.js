@@ -73,7 +73,6 @@ const PublicationForm = () => {
             <option value="eee">EEE</option>
             <option value="me">ME</option>
             <option value="it">IT</option>
-            <option value="mba">MBA</option>
           </select>
         </div>
         <Form.Group as={Col} md={6} controlId="">
@@ -86,7 +85,6 @@ const PublicationForm = () => {
             autocomplete="off"
           />
         </Form.Group>
-
         <Form.Group as={Col} md={6} controlId="">
           <Form.Control
             type="text"
@@ -97,7 +95,6 @@ const PublicationForm = () => {
             autocomplete="off"
           />
         </Form.Group>
-
         <Form.Group as={Col} md={6} controlId="">
           <Form.Control
             type="text"

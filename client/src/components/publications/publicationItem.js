@@ -16,15 +16,17 @@ const PublicationItem = ({ publication }) => {
   return (
     <div className="card mt-15">
       <div className="card-header">
-        <span className="badge badge-primary">{dept}</span>
+        <span className="badge badge-primary">{dept.toUpperCase()}</span>
+        {''} /{''}{' '}
+        <span className="badge badge-default">{journal.toUpperCase()}</span>
       </div>
       <div className="card-body">
-        <h5>
-          <a href={link} className="fa fa-external-link" aria-hidden="true">
-            {journal}
+        <p className="card-text">
+          {title}{' '}
+          <a href={link}>
+            <i className="fa fa-external-link" aria-hidden="true"></i>
           </a>
-        </h5>
-        <p className="card-text">{title}</p>
+        </p>
       </div>
       <div class="card-body">
         <button

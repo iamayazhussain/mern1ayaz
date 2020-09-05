@@ -143,9 +143,9 @@ router.put('/:id', auth, async (req, res) => {
 
   // Build contact object
   const infoFields = {}
-  if (dept) infoFields.tag = dept
+  if (dept) infoFields.dept = dept
   if (title) infoFields.title = title
-  if (journal) infoFields.title = journal
+  if (journal) infoFields.journal = journal
   if (link) infoFields.link = link
   if (date) infoFields.value = date
 
