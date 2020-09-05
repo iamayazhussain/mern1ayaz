@@ -10,7 +10,10 @@ const Publication = require('../models/Publication')
 // @access    Private
 router.get('/', auth, async (req, res) => {
   try {
-    const infos = await Publication.find()
+    const Publications = await Publication.find().sort({
+      date: -1,
+    })
+
     res.json(infos)
   } catch (err) {
     console.error(err.message)
@@ -20,10 +23,10 @@ router.get('/', auth, async (req, res) => {
 
 router.get('/allPublications', async (req, res) => {
   try {
-    const carousels = await Carousel.find().sort({
+    const Publications = await Publication.find().sort({
       date: -1,
     })
-    res.json(carousels)
+    res.json(Publications)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -32,10 +35,12 @@ router.get('/allPublications', async (req, res) => {
 
 router.get('/ce', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ dept: { $in: ['ce'] } }).sort({
-      date: -1,
-    })
-    res.json(carousels)
+    const Publications = await Publication.find({ dept: { $in: ['ce'] } }).sort(
+      {
+        date: -1,
+      },
+    )
+    res.json(Publications)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -44,10 +49,12 @@ router.get('/ce', async (req, res) => {
 
 router.get('/cse', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ dept: { $in: ['cse'] } }).sort({
+    const Publications = await Publication.find({
+      dept: { $in: ['cse'] },
+    }).sort({
       date: -1,
     })
-    res.json(carousels)
+    res.json(Publications)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -56,10 +63,12 @@ router.get('/cse', async (req, res) => {
 
 router.get('/ece', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ dept: { $in: ['ece'] } }).sort({
+    const Publications = await Publication.find({
+      dept: { $in: ['ece'] },
+    }).sort({
       date: -1,
     })
-    res.json(carousels)
+    res.json(Publications)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -68,10 +77,12 @@ router.get('/ece', async (req, res) => {
 
 router.get('/eee', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ dept: { $in: ['eee'] } }).sort({
+    const Publications = await Publication.find({
+      dept: { $in: ['eee'] },
+    }).sort({
       date: -1,
     })
-    res.json(carousels)
+    res.json(Publications)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -80,10 +91,12 @@ router.get('/eee', async (req, res) => {
 
 router.get('/it', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ dept: { $in: ['it'] } }).sort({
-      date: -1,
-    })
-    res.json(carousels)
+    const Publications = await Publication.find({ dept: { $in: ['it'] } }).sort(
+      {
+        date: -1,
+      },
+    )
+    res.json(Publications)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -92,18 +105,20 @@ router.get('/it', async (req, res) => {
 
 router.get('/me', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ dept: { $in: ['me'] } }).sort({
-      date: -1,
-    })
-    res.json(carousels)
+    const Publications = await Publication.find({ dept: { $in: ['me'] } }).sort(
+      {
+        date: -1,
+      },
+    )
+    res.json(Publications)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
   }
 })
 
-// @route     POST api/carousel
-// @desc      Add new carousel
+// @route     POST api/Publication
+// @desc      Add new Publication
 // @access    Private
 router.post(
   '/',
@@ -135,8 +150,8 @@ router.post(
   },
 )
 
-// @route     PUT api/carousel/:id
-// @desc      Update carousel
+// @route     PUT api/Publication/:id
+// @desc      Update Publication
 // @access    Private
 router.put('/:id', auth, async (req, res) => {
   const { dept, title, journal, link, date } = req.body
@@ -167,8 +182,8 @@ router.put('/:id', auth, async (req, res) => {
   }
 })
 
-// @route     DELETE api/carousel/:id
-// @desc      Delete carousel
+// @route     DELETE api/Publication/:id
+// @desc      Delete Publication
 // @access    Private
 router.delete('/:id', auth, async (req, res) => {
   try {
