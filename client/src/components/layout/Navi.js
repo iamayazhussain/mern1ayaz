@@ -39,6 +39,9 @@ const Navi = ({ title, icon }) => {
       <Link to="/infos">
         <Nav.Link href="#about">Infos</Nav.Link>
       </Link>
+      <Link to="/publication">
+        <Nav.Link href="#publication">publication</Nav.Link>
+      </Link>
 
       <Link onClick={onLogout}>
         <Nav.Link href="#logout">Logout</Nav.Link>

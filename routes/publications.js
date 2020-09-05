@@ -3,15 +3,99 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator')
 
-const Info = require('../models/Info')
+const Publication = require('../models/Publication')
 
 // @route     GET api/contacts
 // @desc      Get all users contacts
 // @access    Private
 router.get('/', auth, async (req, res) => {
   try {
-    const infos = await Info.find()
+    const infos = await Publication.find()
     res.json(infos)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/allPublications', async (req, res) => {
+  try {
+    const carousels = await Carousel.find().sort({
+      date: -1,
+    })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/ce', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ dept: { $in: ['ce'] } }).sort({
+      date: -1,
+    })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/cse', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ dept: { $in: ['cse'] } }).sort({
+      date: -1,
+    })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/ece', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ dept: { $in: ['ece'] } }).sort({
+      date: -1,
+    })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/eee', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ dept: { $in: ['eee'] } }).sort({
+      date: -1,
+    })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/it', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ dept: { $in: ['it'] } }).sort({
+      date: -1,
+    })
+    res.json(carousels)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/me', async (req, res) => {
+  try {
+    const carousels = await Carousel.find({ dept: { $in: ['me'] } }).sort({
+      date: -1,
+    })
+    res.json(carousels)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -30,14 +114,15 @@ router.post(
       return res.status(400).json({ errors: errors.array() })
     }
 
-    const { tag, title, link, value } = req.body
+    const { dept, title, journal, link, date } = req.body
 
     try {
-      const newInfo = new Info({
-        tag,
+      const newInfo = new Publication({
+        dept,
         title,
+        journal,
         link,
-        value,
+        date,
       })
 
       const info = await newInfo.save()
@@ -54,21 +139,22 @@ router.post(
 // @desc      Update carousel
 // @access    Private
 router.put('/:id', auth, async (req, res) => {
-  const { tag, title, link, value } = req.body
+  const { dept, title, journal, link, date } = req.body
 
   // Build contact object
   const infoFields = {}
-  if (tag) infoFields.tag = tag
+  if (dept) infoFields.tag = dept
   if (title) infoFields.title = title
+  if (journal) infoFields.title = journal
   if (link) infoFields.link = link
-  if (value) infoFields.value = value
+  if (date) infoFields.value = date
 
   try {
-    let info = await Info.findById(req.params.id)
+    let info = await Publication.findById(req.params.id)
 
-    if (!info) return res.status(404).json({ msg: 'Info not found' })
+    if (!info) return res.status(404).json({ msg: 'Publication not found' })
 
-    info = await Info.findByIdAndUpdate(
+    info = await Publication.findByIdAndUpdate(
       req.params.id,
       { $set: infoFields },
       { new: true },
@@ -86,13 +172,13 @@ router.put('/:id', auth, async (req, res) => {
 // @access    Private
 router.delete('/:id', auth, async (req, res) => {
   try {
-    let info = await Info.findById(req.params.id)
+    let pub = await Publication.findById(req.params.id)
 
-    if (!info) return res.status(404).json({ msg: 'info not found' })
+    if (!pub) return res.status(404).json({ msg: 'Publication not found' })
 
-    await Info.findByIdAndRemove(req.params.id)
+    await Publication.findByIdAndRemove(req.params.id)
 
-    res.json({ msg: 'info removed' })
+    res.json({ msg: 'Publication removed' })
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')

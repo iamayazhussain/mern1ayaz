@@ -1,10 +1,13 @@
 const mongoose = require('mongoose')
 
 const PublicationSchema = mongoose.Schema({
+  dept: {
+    type: String,
+  },
   title: {
     type: String,
   },
-  descp: {
+  journal: {
     type: String,
   },
   link: {
