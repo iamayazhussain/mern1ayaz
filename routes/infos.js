@@ -75,7 +75,7 @@ router.get('/topalert', async (req, res) => {
 
 router.get('/exam', async (req, res) => {
   try {
-    const exam = await Info.find({ tag: { $in: ['exam'] } })
+    const exam = await Info.find({ tag: { $in: ['exam'] } }).sort({ date: -1 })
     res.json(exam)
   } catch (err) {
     console.error(err.message)
