@@ -94,6 +94,7 @@ const InfoForm = () => {
             <option value="news">News</option>
             <option value="useful">Useful Link</option>
             <option value="topalert">Top Alert</option>
+            <option value="exam">Exambranch</option>
           </select>
         </div>
         <div>
