@@ -10,7 +10,7 @@ const Exam = require('../models/Exam')
 // @access    Private
 router.get('/', async (req, res) => {
   try {
-    const exams = await Exam.find().sort({
+    const exams = await Exam.find({ dept: { $in: ['exam'] } }).sort({
       date: -1,
     })
     res.json(exams)

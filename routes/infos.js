@@ -73,6 +73,16 @@ router.get('/topalert', async (req, res) => {
   }
 })
 
+router.get('/exam', async (req, res) => {
+  try {
+    const exam = await Info.find({ tag: { $in: ['exam'] } })
+    res.json(exam)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
 // @route     POST api/carousel
 // @desc      Add new carousel
 // @access    Private
