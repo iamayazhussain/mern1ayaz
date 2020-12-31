@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
 router.get('/useful', async (req, res) => {
   try {
-    const infos = await Info.find({ tag: { $in: ['useful'] } }).limit(5)
+    const infos = await Info.find({ tag: { $in: ['useful'] } }).limit(6)
 
     res.json(infos)
   } catch (err) {
