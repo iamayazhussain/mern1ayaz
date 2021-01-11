@@ -28,7 +28,7 @@ const InfoState = (props) => {
   // Get cnfo
   const getInfos = async () => {
     try {
-      const res = await axios.get('/api/infos')
+      const res = await axios.get('/api/infos/mern')
 
       dispatch({
         type: GET_DATAS,

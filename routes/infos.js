@@ -10,6 +10,17 @@ const Info = require('../models/Info')
 // @access
 router.get('/', async (req, res) => {
   try {
+    const infos = await Info.find({ tag: { $nin: ['useful'] } }).sort({ date: -1 }).limit(5)
+
+    res.json(infos)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+router.get('/mern', async (req, res) => {
+  try {
     const infos = await Info.find().sort({ date: -1 }).limit(5)
 
     res.json(infos)
@@ -18,6 +29,8 @@ router.get('/', async (req, res) => {
     res.status(500).send('Server Error')
   }
 })
+
+
 
 router.get('/useful', async (req, res) => {
   try {
