@@ -17,6 +17,9 @@ const AdmissionSchema = mongoose.Schema({
   cat: {
     type: String,
   },
+  typ: {
+    type: String,
+  },
 
   date: {
     type: Date,
