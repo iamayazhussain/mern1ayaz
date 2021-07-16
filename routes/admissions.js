@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
     return res.status(400).json({ errors: errors.array() })
   }
 
-  const { name, mobile, dept, mark, cat } = req.body
+  const { name, mobile, dept, mark, cat, typ } = req.body
 
   try {
     const newAdmission = new Admission({
@@ -34,6 +34,7 @@ router.post('/', async (req, res) => {
       dept,
       mark,
       cat,
+      typ,
     })
 
     const admissions = await newAdmission.save()
