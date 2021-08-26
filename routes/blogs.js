@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 
 router.get('/main', async (req, res) => {
   try {
-    const blog = await Blog.find().sort({ date: -1 }).limit(4)
+    const blog = await Blog.find().sort({ date: -1 }).limit(7)
     res.json(blog)
   } catch (err) {
     console.error(err.message)
