@@ -12,6 +12,7 @@ import Syllabus from './components/pages/Syllabus'
 import Blog from './components/pages/Blog'
 import Sidebar from './components/pages/Sidebar'
 import Publication from './components/pages/Publication'
+import Placement from './components/pages/Placement'
 
 import CarouselState from './context/carousel/carouselState'
 import SyllabState from './context/syllab/syllabState'
@@ -19,6 +20,7 @@ import InfoState from './context/info/infoState'
 import BlogState from './context/blog/blogState'
 import SidebarState from './context/sidebar/sidebarState'
 import PublicationState from './context/publication/publicationState'
+import PlacementState from './context/placement/placementState'
 
 import AuthState from './context/auth/AuthState'
 import AlertState from './context/alert/AlertState'
@@ -33,6 +35,7 @@ const App = () => {
             <BlogState>
               <SidebarState>
                 <PublicationState>
+                <PlacementState>
                   <AlertState>
                     <Router>
                       <Fragment>
@@ -63,6 +66,11 @@ const App = () => {
                               path="/publication"
                               component={Publication}
                             />
+                            <PrivateRoute
+                              exact
+                              path="/placement"
+                              component={Placement}
+                            />
 
                             <Route
                               exact
@@ -75,6 +83,7 @@ const App = () => {
                       </Fragment>
                     </Router>
                   </AlertState>
+                </PlacementState>
                 </PublicationState>
               </SidebarState>
             </BlogState>
