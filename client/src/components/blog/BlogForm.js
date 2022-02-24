@@ -104,6 +104,7 @@ const BlogForm = () => {
             <option value="me">ME</option>
             <option value="it">IT</option>
             <option value="mba">MBA</option>
+            <option value="placement">Placements</option>
           </select>
         </div>
 

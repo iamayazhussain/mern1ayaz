@@ -34,7 +34,7 @@ router.get('/mern', async (req, res) => {
 
 router.get('/useful', async (req, res) => {
   try {
-    const infos = await Info.find({ tag: { $in: ['useful'] } }).limit(6)
+    const infos = await Info.find({ tag: { $in: ['useful'] } })
 
     res.json(infos)
   } catch (err) {

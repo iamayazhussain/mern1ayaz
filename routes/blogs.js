@@ -28,6 +28,18 @@ router.get('/main', async (req, res) => {
   }
 })
 
+router.get('/placement', async (req, res) => {
+  try {
+    const blog = await Blog.find({ dept: { $in: ['placement'] } })
+      .sort({ date: -1 })
+      .limit(8)
+    res.json(blog)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
 router.get('/ce', async (req, res) => {
   try {
     const blog = await Blog.find({ dept: { $in: ['ce'] } })
