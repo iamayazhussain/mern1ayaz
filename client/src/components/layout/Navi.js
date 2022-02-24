@@ -42,6 +42,9 @@ const Navi = ({ title, icon }) => {
       <Link to="/publication">
         <Nav.Link href="#publication">publication</Nav.Link>
       </Link>
+      <Link to="/placement">
+        <Nav.Link href="#placement">placement</Nav.Link>
+      </Link>
 
       <Link onClick={onLogout}>
         <Nav.Link href="#logout">Logout</Nav.Link>
