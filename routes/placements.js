@@ -3,30 +3,30 @@ const router = express.Router()
 const auth = require('../middleware/auth')
 const { check, validationResult } = require('express-validator')
 
-const Publication = require('../models/Publication')
+const Placement = require('../models/Placement')
 
 // @route     GET api/contacts
 // @desc      Get all users contacts
 // @access    Private
 router.get('/', auth, async (req, res) => {
   try {
-    const Publications = await Publication.find().sort({
+    const Placements = await Placement.find().sort({
       date: -1,
     })
 
-    res.json(Publications)
+    res.json(Placements)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
   }
 })
 
-router.get('/allPublications', async (req, res) => {
+router.get('/allPlacements', async (req, res) => {
   try {
-    const Publications = await Publication.find().sort({
+    const Placements = await Placement.find().sort({
       date: -1,
     })
-    res.json(Publications)
+    res.json(Placements)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -35,12 +35,12 @@ router.get('/allPublications', async (req, res) => {
 
 router.get('/ce', async (req, res) => {
   try {
-    const Publications = await Publication.find({ dept: { $in: ['ce'] } }).sort(
+    const Placements = await Placement.find({ dept: { $in: ['ce'] } }).sort(
       {
         date: -1,
       },
     )
-    res.json(Publications)
+    res.json(Placements)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -49,12 +49,12 @@ router.get('/ce', async (req, res) => {
 
 router.get('/cse', async (req, res) => {
   try {
-    const Publications = await Publication.find({
+    const Placements = await Placement.find({
       dept: { $in: ['cse'] },
     }).sort({
       date: -1,
     })
-    res.json(Publications)
+    res.json(Placements)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -63,12 +63,12 @@ router.get('/cse', async (req, res) => {
 
 router.get('/ece', async (req, res) => {
   try {
-    const Publications = await Publication.find({
+    const Placements = await Placement.find({
       dept: { $in: ['ece'] },
     }).sort({
       date: -1,
     })
-    res.json(Publications)
+    res.json(Placements)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -77,12 +77,12 @@ router.get('/ece', async (req, res) => {
 
 router.get('/eee', async (req, res) => {
   try {
-    const Publications = await Publication.find({
+    const Placements = await Placement.find({
       dept: { $in: ['eee'] },
     }).sort({
       date: -1,
     })
-    res.json(Publications)
+    res.json(Placements)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -91,12 +91,12 @@ router.get('/eee', async (req, res) => {
 
 router.get('/it', async (req, res) => {
   try {
-    const Publications = await Publication.find({ dept: { $in: ['it'] } }).sort(
+    const Placements = await Placement.find({ dept: { $in: ['it'] } }).sort(
       {
         date: -1,
       },
     )
-    res.json(Publications)
+    res.json(Placements)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
@@ -105,20 +105,20 @@ router.get('/it', async (req, res) => {
 
 router.get('/me', async (req, res) => {
   try {
-    const Publications = await Publication.find({ dept: { $in: ['me'] } }).sort(
+    const Placements = await Placement.find({ dept: { $in: ['me'] } }).sort(
       {
         date: -1,
       },
     )
-    res.json(Publications)
+    res.json(Placements)
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
   }
 })
 
-// @route     POST api/Publication
-// @desc      Add new Publication
+// @route     POST api/Placement
+// @desc      Add new Placement
 // @access    Private
 router.post(
   '/',
@@ -132,7 +132,7 @@ router.post(
     const { dept, title, journal, link, date } = req.body
 
     try {
-      const newInfo = new Publication({
+      const newInfo = new Placement({
         dept,
         title,
         journal,
@@ -150,8 +150,8 @@ router.post(
   },
 )
 
-// @route     PUT api/Publication/:id
-// @desc      Update Publication
+// @route     PUT api/Placement/:id
+// @desc      Update Placement
 // @access    Private
 router.put('/:id', auth, async (req, res) => {
   const { dept, title, journal, link, date } = req.body
@@ -165,11 +165,11 @@ router.put('/:id', auth, async (req, res) => {
   if (date) infoFields.value = date
 
   try {
-    let info = await Publication.findById(req.params.id)
+    let info = await Placement.findById(req.params.id)
 
-    if (!info) return res.status(404).json({ msg: 'Publication not found' })
+    if (!info) return res.status(404).json({ msg: 'Placement not found' })
 
-    info = await Publication.findByIdAndUpdate(
+    info = await Placement.findByIdAndUpdate(
       req.params.id,
       { $set: infoFields },
       { new: true },
@@ -182,18 +182,18 @@ router.put('/:id', auth, async (req, res) => {
   }
 })
 
-// @route     DELETE api/Publication/:id
-// @desc      Delete Publication
+// @route     DELETE api/Placement/:id
+// @desc      Delete Placement
 // @access    Private
 router.delete('/:id', auth, async (req, res) => {
   try {
-    let pub = await Publication.findById(req.params.id)
+    let pub = await Placement.findById(req.params.id)
 
-    if (!pub) return res.status(404).json({ msg: 'Publication not found' })
+    if (!pub) return res.status(404).json({ msg: 'Placement not found' })
 
-    await Publication.findByIdAndRemove(req.params.id)
+    await Placement.findByIdAndRemove(req.params.id)
 
-    res.json({ msg: 'Publication removed' })
+    res.json({ msg: 'Placement removed' })
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
