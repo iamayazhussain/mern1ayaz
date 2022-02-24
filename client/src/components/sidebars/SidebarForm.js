@@ -92,6 +92,7 @@ const SidebarForm = () => {
             <option value="mba">MBA</option>
             <option value="events">Events</option>
             <option value="research">Research</option>
+            <option value="placement">Placement</option>
           </select>
         </div>
         <div>

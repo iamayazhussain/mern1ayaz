@@ -31,6 +31,19 @@ router.get('/academics', async (req, res) => {
   }
 })
 
+router.get('/placement', async (req, res) => {
+  try {
+    const sidebars = await Sidebar.find({ tag: { $in: ['placement'] } }).sort({
+      date: -1,
+    })
+    res.json(sidebars)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+
 router.get('/events', async (req, res) => {
   try {
     const sidebars = await Sidebar.find({ tag: { $in: ['events'] } }).sort({
