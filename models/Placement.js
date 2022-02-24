@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const PublicationSchema = mongoose.Schema({
+const PlacementSchema = mongoose.Schema({
   dept: {
     type: String,
   },
@@ -19,4 +19,4 @@ const PublicationSchema = mongoose.Schema({
   },
 })
 
-module.exports = mongoose.model('publications', PublicationSchema)
+module.exports = mongoose.model('placements', PlacementSchema)

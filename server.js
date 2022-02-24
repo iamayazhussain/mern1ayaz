@@ -34,6 +34,7 @@ app.use('/api/blogs', require('./routes/blogs'))
 app.use('/api/sidebars', require('./routes/sidebars'))
 app.use('/api/exams', require('./routes/exams'))
 app.use('/api/publications', require('./routes/publications'))
+app.use('/api/placements', require('./routes/placements'))
 
 app.use('/api/admissions', require('./routes/admissions'))
 
