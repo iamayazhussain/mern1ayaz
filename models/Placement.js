@@ -13,6 +13,9 @@ const PlacementSchema = mongoose.Schema({
   link: {
     type: String,
   },
+  salary: {
+    type: String,
+  },
   date: {
     type: Date,
     default: Date.now,

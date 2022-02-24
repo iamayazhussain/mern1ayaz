@@ -18,14 +18,11 @@ const PlacementItem = ({ placement }) => {
       <div className="card-header">
         <span className="badge badge-primary">{dept.toUpperCase()}</span>
         {''} /{''}{' '}
-        <span className="badge badge-default">{journal.toUpperCase()}</span>
+        <span className="badge badge-default">{journal}</span>
       </div>
       <div className="card-body">
         <p className="card-text">
-          {title}{' '}
-          <a href={link}>
-            <i className="fa fa-external-link" aria-hidden="true"></i>
-          </a>
+          {title}{' '} | {link}
         </p>
       </div>
       <div class="card-body">

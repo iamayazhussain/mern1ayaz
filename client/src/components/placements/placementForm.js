@@ -21,6 +21,7 @@ const PlacementForm = () => {
         title: '',
         journal: '',
         link: '',
+        salary: '',
       })
     }
   }, [placementContext, current])
@@ -30,9 +31,10 @@ const PlacementForm = () => {
     title: '',
     journal: '',
     link: '',
+    salary: '',
   })
 
-  const { dept, title, journal, link } = placement
+  const { dept, title, journal, link, salary } = placement
 
   const onChange = (e) =>
     setPlacement({ ...placement, [e.target.name]: e.target.value })
@@ -57,7 +59,20 @@ const PlacementForm = () => {
         {current ? 'Edit Placement' : 'Add Placement'}
       </h2>
 
+
       <Form.Row>
+
+      <Form.Group as={Col} md={6} controlId="">
+          <Form.Control
+            type="text"
+            placeholder="Company"
+            name="title"
+            value={title}
+            onChange={onChange}
+            autocomplete="off"
+          />
+        </Form.Group>
+
         <div className="form-group col-md-6">
           <select
             id="inputState"
@@ -67,33 +82,19 @@ const PlacementForm = () => {
             onChange={onChange}
           >
             <option selected>Choose...</option>
-            <option value="cse">CSE</option>
-            <option value="ce">CE</option>
-            <option value="ece">ECE</option>
-            <option value="eee">EEE</option>
-            <option value="me">ME</option>
-            <option value="it">IT</option>
-            <option value="me">ME</option>
+            <option value="on campus">On Campus</option>
+            <option value="off campus">Off Campus</option>
           </select>
         </div>
         <Form.Group as={Col} md={6} controlId="">
           <Form.Control
-            type="text"
-            placeholder="Title"
-            name="title"
-            value={title}
-            onChange={onChange}
-            autocomplete="off"
-          />
-        </Form.Group>
-        <Form.Group as={Col} md={6} controlId="">
-          <Form.Control
-            type="text"
+            type="date"
             placeholder="Journal"
             name="journal"
             value={journal}
             onChange={onChange}
             autocomplete="off"
+            data-date-format="dd/mm/yy" 
           />
         </Form.Group>
         <Form.Group as={Col} md={6} controlId="">
@@ -102,6 +103,16 @@ const PlacementForm = () => {
             placeholder="Link"
             name="link"
             value={link}
+            onChange={onChange}
+            autocomplete="off"
+          />
+        </Form.Group>
+        <Form.Group as={Col} md={6} controlId="">
+          <Form.Control
+            type="text"
+            placeholder="Salary"
+            name="salary"
+            value={salary}
             onChange={onChange}
             autocomplete="off"
           />

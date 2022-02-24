@@ -33,90 +33,6 @@ router.get('/allPlacements', async (req, res) => {
   }
 })
 
-router.get('/ce', async (req, res) => {
-  try {
-    const Placements = await Placement.find({ dept: { $in: ['ce'] } }).sort(
-      {
-        date: -1,
-      },
-    )
-    res.json(Placements)
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send('Server Error')
-  }
-})
-
-router.get('/cse', async (req, res) => {
-  try {
-    const Placements = await Placement.find({
-      dept: { $in: ['cse'] },
-    }).sort({
-      date: -1,
-    })
-    res.json(Placements)
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send('Server Error')
-  }
-})
-
-router.get('/ece', async (req, res) => {
-  try {
-    const Placements = await Placement.find({
-      dept: { $in: ['ece'] },
-    }).sort({
-      date: -1,
-    })
-    res.json(Placements)
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send('Server Error')
-  }
-})
-
-router.get('/eee', async (req, res) => {
-  try {
-    const Placements = await Placement.find({
-      dept: { $in: ['eee'] },
-    }).sort({
-      date: -1,
-    })
-    res.json(Placements)
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send('Server Error')
-  }
-})
-
-router.get('/it', async (req, res) => {
-  try {
-    const Placements = await Placement.find({ dept: { $in: ['it'] } }).sort(
-      {
-        date: -1,
-      },
-    )
-    res.json(Placements)
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send('Server Error')
-  }
-})
-
-router.get('/me', async (req, res) => {
-  try {
-    const Placements = await Placement.find({ dept: { $in: ['me'] } }).sort(
-      {
-        date: -1,
-      },
-    )
-    res.json(Placements)
-  } catch (err) {
-    console.error(err.message)
-    res.status(500).send('Server Error')
-  }
-})
-
 // @route     POST api/Placement
 // @desc      Add new Placement
 // @access    Private
@@ -129,7 +45,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() })
     }
 
-    const { dept, title, journal, link, date } = req.body
+    const { dept, title, journal, link, salary, date } = req.body
 
     try {
       const newInfo = new Placement({
@@ -137,6 +53,7 @@ router.post(
         title,
         journal,
         link,
+        salary,
         date,
       })
 
@@ -154,7 +71,7 @@ router.post(
 // @desc      Update Placement
 // @access    Private
 router.put('/:id', auth, async (req, res) => {
-  const { dept, title, journal, link, date } = req.body
+  const { dept, title, journal, link, salary, date } = req.body
 
   // Build contact object
   const infoFields = {}
@@ -162,6 +79,7 @@ router.put('/:id', auth, async (req, res) => {
   if (title) infoFields.title = title
   if (journal) infoFields.journal = journal
   if (link) infoFields.link = link
+  if (salary) infoFields.salary = salary
   if (date) infoFields.value = date
 
   try {
