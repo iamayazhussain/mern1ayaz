@@ -24,7 +24,7 @@ router.get('/', auth, async (req, res) => {
 router.get('/allPlacements', async (req, res) => {
   try {
     const Placements = await Placement.find().sort({
-      date: -1,
+      journal: -1,
     })
     res.json(Placements)
   } catch (err) {

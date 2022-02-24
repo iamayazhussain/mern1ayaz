@@ -100,7 +100,7 @@ const PlacementForm = () => {
         <Form.Group as={Col} md={6} controlId="">
           <Form.Control
             type="text"
-            placeholder="Link"
+            placeholder="Department"
             name="link"
             value={link}
             onChange={onChange}
@@ -110,7 +110,7 @@ const PlacementForm = () => {
         <Form.Group as={Col} md={6} controlId="">
           <Form.Control
             type="text"
-            placeholder="Salary"
+            placeholder="Package"
             name="salary"
             value={salary}
             onChange={onChange}
