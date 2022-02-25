@@ -10,7 +10,7 @@ const Info = require('../models/Info')
 // @access
 router.get('/', async (req, res) => {
   try {
-    const infos = await Info.find({ tag: { $nin: ['useful'] } }).sort({ date: -1 })
+    const infos = await Info.find({ tag: { $nin: ['useful'] } }).sort({ date: -1 }).limit(4)
 
     res.json(infos)
   } catch (err) {
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
 router.get('/mern', async (req, res) => {
   try {
-    const infos = await Info.find().sort({ date: -1 })
+    const infos = await Info.find().sort({ date: -1 }.limit(4))
 
     res.json(infos)
   } catch (err) {
@@ -34,7 +34,7 @@ router.get('/mern', async (req, res) => {
 
 router.get('/useful', async (req, res) => {
   try {
-    const infos = await Info.find({ tag: { $in: ['useful'] } })
+    const infos = await Info.find({ tag: { $in: ['useful'] } }).limit(4)
 
     res.json(infos)
   } catch (err) {
@@ -45,7 +45,7 @@ router.get('/useful', async (req, res) => {
 
 router.get('/alluseful', async (req, res) => {
   try {
-    const infos = await Info.find({ tag: { $in: ['useful'] } })
+    const infos = await Info.find({ tag: { $in: ['useful'] } }).limit(4)
     res.json(infos)
   } catch (err) {
     console.error(err.message)
