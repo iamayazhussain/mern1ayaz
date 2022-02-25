@@ -6,7 +6,7 @@ const PlacementItem = ({ placement }) => {
   const placementContext = useContext(PlacementContext)
   const { deletePlacement, setCurrent, clearCurrent } = placementContext
 
-  const { _id, dept, title, journal, link } = placement
+  const { _id, dept, title, journal, salary, link } = placement
 
   const onDelete = () => {
     deletePlacement(_id)
@@ -22,7 +22,7 @@ const PlacementItem = ({ placement }) => {
       </div>
       <div className="card-body">
         <p className="card-text">
-          {title}{' '} | {link}
+          {title}{' '} | {link} | {salary}
         </p>
       </div>
       <div class="card-body">

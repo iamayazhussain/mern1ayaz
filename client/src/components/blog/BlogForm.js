@@ -67,16 +67,7 @@ const BlogForm = () => {
           />
         </Form.Group>
 
-        <Form.Group as={Col} md={6} controlId="">
-          <Form.Control
-            type="text"
-            placeholder="Img Title"
-            name="title"
-            value={title}
-            onChange={onChange}
-            autocomplete="off"
-          />
-        </Form.Group>
+        
 
         <Form.Group as={Col} md={6} controlId="">
           <Form.Control
@@ -88,7 +79,7 @@ const BlogForm = () => {
             autocomplete="off"
           />
         </Form.Group>
-        <div className="form-group col-md-6">
+        <div className="form-group col-md-12">
           <select
             id="inputState"
             class="form-control"
@@ -107,6 +98,9 @@ const BlogForm = () => {
             <option value="placement">Placements</option>
           </select>
         </div>
+
+
+        <div className="form-group col-md-12">
 
         <div className="form-check form-check-inline">
           <input
@@ -160,7 +154,7 @@ const BlogForm = () => {
             workshop
           </label>
         </div>
-
+        </div>
         <Form.Group as={Col} md={6} controlId="">
           <Form.Control
             type="text"
