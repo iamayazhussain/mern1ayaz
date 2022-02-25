@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
 router.get('/mern', async (req, res) => {
   try {
-    const infos = await Info.find().sort({ date: -1 }.limit(4))
+    const infos = await Info.find().sort({ date: -1 })
 
     res.json(infos)
   } catch (err) {
