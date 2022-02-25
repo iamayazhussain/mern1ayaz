@@ -68,7 +68,8 @@ router.get('/news', async (req, res) => {
 
 router.get('/allNews', async (req, res) => {
   try {
-    const infos = await Info.find({ tag: { $in: ['news'] } }).sort({ date: -1 })
+    const infos = await Info.find({ tag: { $in: ['news'] } }).sort({ date: -1 }).limit(4)
+
     res.json(infos)
   } catch (err) {
     console.error(err.message)
