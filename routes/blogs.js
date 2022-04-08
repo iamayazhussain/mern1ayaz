@@ -10,7 +10,7 @@ const Blog = require('../models/Blog')
 // @access    Private
 router.get('/', async (req, res) => {
   try {
-    const blog = await Blog.find().sort({ date: -1 })
+    const blog = await Blog.find({ dept: { $not: ['placement'] } }).sort({ date: -1 })
     res.json(blog)
   } catch (err) {
     console.error(err.message)
