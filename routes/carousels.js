@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
   try {
     const carousels = await Carousel.find().sort({
       date: -1,
-    })
+    }).limit(4).
     res.json(carousels)
   } catch (err) {
     console.error(err.message)
