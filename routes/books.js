@@ -8,7 +8,7 @@ const Book = require('../models/Book')
 // @route     GET api/Book
 // @desc      Get all books
 // @access    Private
-router.get('/', auth, async (req, res) => {
+router.get('/',  async (req, res) => {
   try {
     const Books = await Book.find().sort({
       date: -1,
