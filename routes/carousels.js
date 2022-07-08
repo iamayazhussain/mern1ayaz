@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 })
 router.get('/main', async (req, res) => {
   try {
-    const carousels = await Carousel.find({ tag: { $in: ['main'] } }).limit(5).sort({
+    const carousels = await Carousel.find({ tag: { $in: ['main'] } }).limit(8).sort({
       date: -1,
     })
     res.json(carousels)
