@@ -37,6 +37,18 @@ router.get('/cse', async (req, res) => {
     res.status(500).send('Server Error')
   }
 })
+
+router.get('/aids', async (req, res) => {
+  try {
+    const syllabs = await Syllab.find({ dept: { $in: ['aids'] } })
+    res.json(syllabs)
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server Error')
+  }
+})
+
+
 router.get('/ece', async (req, res) => {
   try {
     const syllabs = await Syllab.find({ dept: { $in: ['ece'] } })
