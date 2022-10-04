@@ -62,8 +62,10 @@ const SyllabForm = () => {
             onChange={onChange}
           >
             <option selected>Department...</option>
+            <option value="aids">AI & DS</option>
             <option value="cse">CSE</option>
             <option value="ce">CE</option>
+            
             <option value="ece">ECE</option>
             <option value="eee">EEE</option>
             <option value="me">ME</option>
